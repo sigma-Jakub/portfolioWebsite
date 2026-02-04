@@ -1,0 +1,3 @@
+<?php
+    $sbHandler = null;
+?>
