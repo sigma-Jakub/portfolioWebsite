@@ -48,18 +48,36 @@
 <head>
     <meta charset="UTF-8">
     <meta name="viewport" content="width=device-width, initial-scale=1.0">
-    <title>Document</title>
+    <title>Jakub Mazur &vert; Login</title>
+    <link rel="icon" href="images/general/porfolio-logo.png">
+    <link rel="preconnect" href="https://fonts.googleapis.com">
+    <link rel="preconnect" href="https://fonts.gstatic.com" crossorigin>
+    <link href="https://fonts.googleapis.com/css2?family=Roboto:ital,wght@0,100..900;1,100..900&display=swap" rel="stylesheet">
+    <link rel="stylesheet" href="styles/login.css">
+    <link rel="stylesheet" href="styles/general.css">
 </head>
 <body>
-    <form action="<?php echo $_SERVER["PHP_SELF"] ?>" method="POST">
-        <label for="un">Username</label>
-        <input type="text" name="un" id="un">
-        <label for="ps">Password</label>
-        <input type="text" name="pw" id="pw">
-        <input type="submit" name="submit" id="submit">
-    </form>
-    <?php
-        echo $errorMessage;
-    ?>
+    <div class="login-container">
+        <p class="page-title">Login</p>
+        <div>
+            <form action="<?php echo $_SERVER["PHP_SELF"] ?>" method="POST">
+                <div class="login-wrapper">
+                    <label for="un">Username</label>
+                    <input type="text" name="un" id="un">
+                </div>
+                <div class="login-wrapper">
+                    <label for="ps">Password</label>
+                    <input type="password" name="pw" id="pw">
+                </div>
+                <div class="login-wrapper">
+                    <input type="submit" name="submit" id="submit" value="Log in">
+                    <a href="index.php" class="bth-button">Back To Home</a>
+                </div>
+            </form>
+        </div>
+        <?php
+            echo $errorMessage;
+        ?>
+    </div>
 </body>
 </html>
