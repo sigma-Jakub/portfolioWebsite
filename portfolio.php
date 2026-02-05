@@ -14,6 +14,17 @@
     <title>Document</title>
 </head>
 <body>
-    <a href="categories.php">Year 1</a>
+    <div>
+        <a href="modules.php?id=1">Year 1</a>
+    </div>
+    <div>
+        <a href="modules.php?id=2">Year 2</a>
+    </div>
+    <div>
+        <a href="modules.php?id=3">Year 3</a>
+    </div>
+    <div>
+        <a href="modules.php?id=4">Year 4</a>
+    </div>
 </body>
 </html>
