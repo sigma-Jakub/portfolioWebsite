@@ -1,0 +1,58 @@
+th, tr, td {
+    border: 3px solid #30363D;
+}
+
+th {
+    font-size: 28px;
+    font-weight: bold;
+    padding: 32px;
+    color: #58A6FF;
+}
+
+td {
+    font-size: 20px;
+    padding: 16px;
+    text-align: center;
+}
+
+table {
+    border-collapse: collapse;
+    margin-bottom: 144px;
+}
+
+.table-container {
+    display: flex;
+    justify-content: center;
+    align-items: center;
+    flex-direction: column;
+}
+
+.module-back-container {
+    display: flex;
+    justify-content: center;
+    align-items: center;
+    margin-bottom: 96px;
+}
+
+.module-back-button {
+    font-size: 32px;
+    border: 1px solid #E6EDF3;
+    border-radius: 6px;
+    padding: 12px;
+    font-weight: bold;
+    transition: 0.3s;
+    text-align: center;
+}
+
+.module-back-button:hover {
+    background-color: #E6EDF3;
+    color: #0D1117; 
+}
+
+.module-back-button:active {
+    opacity: 0.5;
+}
+
+.file-img {
+    height: 40px;
+}

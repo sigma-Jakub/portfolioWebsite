@@ -35,7 +35,7 @@
 }
 
 .content-title {
-    font-size: 24px;
+    font-size: 28px;
     color: #58A6FF;
     font-weight: bold;
     padding: 16px;
@@ -53,6 +53,7 @@
 }
 
 .content-text {
+    font-size: 24px;
     padding: 8px 16px 8px 8px;
 }
 

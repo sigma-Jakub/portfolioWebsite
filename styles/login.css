@@ -1,0 +1,91 @@
+body {
+    display: flex;
+    justify-content: center;
+    align-items: center;
+    height: 100vh;
+}
+
+form {
+    border: 3px solid #E6EDF3;
+    border-radius: 6px;
+    height: 400px;
+    width: 400px;
+    display: flex;
+    justify-content: center;
+    align-items: center;
+    flex-direction: column;
+}
+
+label {
+    width: 150px;
+    font-size: 32px;
+    font-weight: bold;
+}
+
+input {
+    background-color: #0D1117;
+    border: 3px solid #E6EDF3;
+    border-radius: 6px;
+    font-size: 20px;
+    padding: 6px;
+    color: #E6EDF3;
+}
+
+input:focus {
+    border: 3px solid #58A6FF;
+    outline: none;
+}
+
+.login-wrapper {
+    display: flex;
+    flex-direction: column;
+    margin-top: 12px;
+    margin-bottom: 12px;
+}
+
+input[type="submit"] {
+    font-size: 28px;
+    border: 1px solid #E6EDF3;
+    border-radius: 6px;
+    padding: 12px;
+    font-weight: bold;
+    transition: 0.3s;
+    margin-top: 12px;
+    margin-bottom: 48px;
+}
+
+
+input[type="submit"]:hover {
+    cursor: pointer;
+    background-color: #E6EDF3;
+    color: #0D1117;
+}
+
+input[type="submit"]:active {
+    opacity: 0.5;
+}
+
+.bth-button {
+    text-align: center;
+    color: #30363D;
+    border: 1px solid #30363D;
+    font-weight: 500;
+    font-size: 12px;
+    padding: 4px;
+    border-radius: 6px;
+    transition: 0.3s;
+}
+
+.bth-button:hover {
+    background-color: #E6EDF3;
+    border: 1px solid #E6EDF3;
+}
+
+.bth-button:active {
+    opacity: 0.5;
+}
+
+.error {
+    color: #FF3131;
+    margin-top: 12px;
+}
