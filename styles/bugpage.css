@@ -1,0 +1,61 @@
+body {
+    display: flex;
+    justify-content: center;
+    align-items: center;
+    height: 100vh;
+}
+
+.error-container {
+    display: flex;
+    align-items: center;
+    flex-direction: column;
+}
+
+.pnf-title {
+    font-size: 128px;
+    font-weight: bold;
+}
+
+.pnf-subtitle {
+    font-size: 48px;
+    font-weight: bold;
+}
+
+.pnf-button, .den-button {
+    margin-top: 32px;
+    font-size: 32px;
+    border: 1px solid #E6EDF3;
+    border-radius: 6px;
+    padding: 12px;
+    font-weight: bold;
+    transition: 0.3s;
+    text-align: center;
+}
+
+.pnf-button:hover, .den-button:hover {
+    background-color: #E6EDF3;
+    color: #0D1117;
+}
+
+.pnf-button:active, .den-button:active {
+    opacity: 0.5;
+}
+
+.padlock-icon {
+    height: 256px;
+}
+
+.den-title {
+    font-size: 96px;
+    font-weight: bold;
+}
+
+.den-subtitle {
+    font-size: 40px;
+    font-weight: bold;
+}
+
+.den-container {
+    display: grid;
+    grid-template-columns: 1fr;
+}
