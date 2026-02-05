@@ -1,0 +1,178 @@
+/* GENERAL */
+
+body {
+    background-color: #0D1117;
+    color: #E6EDF3;
+    font-family: "Roboto", sans-serif;
+    font-size: 20px;
+    margin: 0;
+    padding: 0;
+}
+
+p {
+    margin: 0;
+}
+
+a {
+    text-decoration: none;
+    color: #E6EDF3;
+}
+
+hr {
+    margin: 0;
+}
+
+.page-title {
+    display: flex;
+    justify-content: center;
+    align-items: center;
+    font-size: 48px;
+    font-weight: 500;
+    margin-top: 48px;
+    margin-bottom: 48px;
+}
+
+.content {
+    display: flex;
+    justify-content: center;
+    align-items: center;
+    flex-direction: column;
+}
+
+.content-wrapper {
+    width: 80%;
+}
+
+/* NAVBAR */
+
+.header-container {
+    display: flex;
+    justify-content: space-between;
+    align-items: center;
+    margin: 24px;
+}
+
+.logo-img {
+    width: 120px;
+}
+
+.header-buttons {
+    display: flex;
+    gap: 48px;
+}
+
+.header-button {
+    font-weight: 500;
+    font-size: 28px;
+    padding: 12px;
+    border-radius: 6px;
+    transition: background-color 0.3s, color 0.3s, opacity 0.3s;
+}
+
+.header-button:hover {
+    background-color: #E6EDF3;
+    color: #0D1117;
+}
+
+.header-button:active {
+    opacity: 0.5;
+}
+
+.login-container {
+    display: flex;
+    flex-direction: column;
+    align-items: center;
+}
+
+.logged-label {
+    margin-top: 12px;
+    font-size: 12px;
+}
+
+.login-button {
+    font-size: 28px;
+    border: 1px solid #E6EDF3;
+    border-radius: 6px;
+    padding: 12px;
+    font-weight: bold;
+    transition: 0.3s;
+}
+
+.login-button:hover {
+    background-color: #E6EDF3;
+    color: #0D1117;
+}
+
+.login-button:active {
+    opacity: 0.5;
+}
+
+.divider {
+    border: solid 1px #30363D;
+}
+
+/* FOOTER */
+
+.footer-container {
+    display: flex;
+    justify-content: space-between;
+    margin: 24px;
+}
+
+.footer-left-section, .footer-right-section {
+    display: flex;
+    justify-content: flex-start;
+    align-items: center;
+    flex-direction: column;
+    gap: 12px;
+}
+
+.footer-middle-section {
+    display: flex;
+    align-self: center;
+}
+
+.footer-title {
+    font-size: 32px;
+    font-weight: bold;
+}
+
+.footer-subtext {
+    font-size: 16px;
+    font-style: italic;
+}
+
+.footer-copyright {
+    font-size: 12px;
+    color: #30363D;
+    align-self: flex-start;
+}
+
+.footer-middle-title {
+    font-size: 16px;
+    color: #E6EDF3;
+    opacity: 0.5;
+}
+
+.footer-socials-container {
+    display: flex;
+    justify-content: space-between;
+}
+
+.a-profile {
+    margin: 0 16px 0 16px;
+    height: 40px;
+}
+
+.footer-img {
+    height: 40px;
+    transition: 0.3s;
+}
+
+.footer-img:hover {
+    opacity: 0.5;
+}
+
+.footer-img:active {
+    opacity: 0.25;
+}
