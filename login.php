@@ -25,10 +25,16 @@
                     $row = $stmt->fetch(PDO::FETCH_ASSOC);
 
                     if($row) {
-                        if($row["role"] == "admin") {
+                        if($row["permission"] == "admin") {
                             $_SESSION["display"] = "admin";
                             header("Location: index.php");
-                        } elseif($row["role"] == "visitor") {
+                        } elseif($row["permission"] == "student") {
+                            $_SESSION["display"] = "student";
+                            header("Location: index.php");
+                        } elseif($row["permission"] == "lecturer") {
+                            $_SESSION["display"] = "lecturer";
+                            header("Location: index.php");
+                        } elseif($row["permission"] == "guest") {
                             $_SESSION["display"] = "guest";
                             header("Location: index.php");
                         }
