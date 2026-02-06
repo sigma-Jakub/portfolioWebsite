@@ -30,10 +30,14 @@
     function showGuestTable($id) {
         global $dbHandler;
 
+        $permission = $_SESSION["display"];
+
         if($dbHandler) {
             try {
-                $stmt = $dbHandler->prepare("SELECT * FROM `file` WHERE `module` = :id ORDER BY `title`;");
+                $stmt = $dbHandler->prepare("SELECT * FROM `file` WHERE `module` = :id AND `access` LIKE :permission ORDER BY `title`;");
                 $stmt->bindParam("id", $id, PDO::PARAM_STR);
+                $likePermission = "%" . $permission . "%";
+                $stmt->bindParam("permission", $likePermission, PDO::PARAM_STR);
                 $stmt->execute();
                 $results = $stmt->fetchall(PDO::FETCH_ASSOC);
 
@@ -118,7 +122,7 @@
             }
         }
         echo '
-            <div class="table-container">
+            <div class="form-container">
                 <form action="' . $_SERVER["PHP_SELF"] . '" method="POST" enctype="multipart/form-data">
 
                     <input type="hidden" name="id" id="id" value="' .  $id . '">
@@ -134,12 +138,12 @@
                     <div class="file-wrapper">
                         <label for="access">Access</label>
                         <div class="access-container">
-                            <label for="everyone">everyone</label>
-                            <input type="radio" name="accessName" value="everyone" checked>
-                            <label for="supervisor">supervisors</label>
-                            <input type="radio" name="accessName" value="supervisors">
-                            <label for="student">students</label>
-                            <input type="radio" name="accessName" value="students">
+                            <p class="checkbox-label">students</p>
+                            <input type="checkbox" name="accessName[]" value="student">
+                            <p class="checkbox-label">lecturers</p>
+                            <input type="checkbox" name="accessName[]" value="lecturer">
+                            <p class="checkbox-label">guests</p>
+                            <input type="checkbox" name="accessName[]" value="guest">
                         </div>
                     </div>
                     <div class="file-wrapper">
@@ -162,7 +166,7 @@
                         <label for="file">File</label>
                         <input type="file" name="file" id="file">
                     </div>
-                    <div class="file-wrapper">
+                    <div class="submit-wrapper">
                         <input type="submit" name="submit" id="submit" value="Add File">
                     </div>
                 </form>
@@ -173,7 +177,7 @@
     function validateInput() {
         $title = filter_input(INPUT_POST, "title", FILTER_SANITIZE_FULL_SPECIAL_CHARS);
         $desc = filter_input(INPUT_POST, "description", FILTER_SANITIZE_FULL_SPECIAL_CHARS);
-        $access = filter_input(INPUT_POST, "accessName", FILTER_SANITIZE_FULL_SPECIAL_CHARS);
+        $access = filter_input(INPUT_POST, "accessName", FILTER_SANITIZE_FULL_SPECIAL_CHARS, FILTER_REQUIRE_ARRAY);
         $module = filter_input(INPUT_POST, "module", FILTER_SANITIZE_FULL_SPECIAL_CHARS);
 
         $fname = $_FILES["file"]["name"];
@@ -182,19 +186,21 @@
 
         $allowedExt = ["application/pdf", "application/vnd.openxmlformats-officedocument.wordprocessingml.document"];
 
-        if(empty($title) || empty($desc) || empty($access) || empty($module) || !empty($error)) {
-            echo '<p class="error">Fill up all the inputs.</p>';
+        if(empty($title) || empty($desc) || $access == null || $access == false || empty($module) || !empty($error)) {
+            // echo '<p class="error">Fill up all the inputs.</p>';
         } else {
+            $accessStr = implode(", ", $access);
+
             $of = finfo_open(FILEINFO_MIME_TYPE);
             $uploadedExt = finfo_file($of, $tmp);
 
             if(!in_array($uploadedExt, $allowedExt)) {
-                echo '<p class="error">Only PDF or DOCX files may be uploaded.</p>';
+                // echo '<p class="error">Only PDF or DOCX files may be uploaded.</p>';
             } else {
                 if($uploadedExt == "application/pdf") {
-                    uploadFile($title, $desc, $access, $fname, $module, $tmp);
+                    uploadFile($title, $desc, $accessStr, $fname, $module, $tmp);
                 } elseif($uploadedExt == "application/vnd.openxmlformats-officedocument.wordprocessingml.document") {
-                    uploadFile($title, $desc, $access, $fname, $module, $tmp);
+                    uploadFile($title, $desc, $accessStr, $fname, $module, $tmp);
                 }
             }
         }
@@ -264,7 +270,7 @@
             <p class="page-title">Files</p>
             <div class="table-container">
                 <?php
-                    if($_SESSION["display"] == "guest") {
+                    if(isset($_SESSION["display"]) && $_SESSION["display"] !== "admin") {
                         showGuestTable($id);
                     } elseif($_SESSION["display"] == "admin") {
                         showAdminTable($id);
