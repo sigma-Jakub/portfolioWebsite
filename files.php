@@ -93,6 +93,7 @@
                     <th>View</th>
                     <th>Save</th>
                     <th>Access</th>
+                    <th>Delete</th>
                 ';
 
                 foreach($results as $result) {
@@ -111,6 +112,7 @@
                                 </a>
                             </td>
                             <td>' . $result["access"] . '</td>
+                            <td><a href="delete.php?id=' . $result["fileId"] . '" class="delete-button">DELETE</a></td>
                         </tr>
                     ';
                 }
