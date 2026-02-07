@@ -152,3 +152,21 @@ label {
 .checkbox-label {
     display: inline-block;
 }
+
+.delete-button {
+    font-size: 20px;
+    border: 3px solid #E6EDF3;
+    border-radius: 6px;
+    padding: 12px;
+    font-weight: bold;
+    transition: 0.3s;
+}
+
+.delete-button:hover {
+    background-color: #E6EDF3;
+    color: #0D1117;
+}
+
+.delete-button:active {
+    opacity: 0.5;
+}
